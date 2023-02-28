@@ -74,7 +74,7 @@
     <script>
       "use strict";
       $('article img').addClass('image-center');
-      $('p:last-of-type').remove();
+      $('p:last-of-type').remove(); // FIXME: select just last p in article
 
       /**
        * This function gets a random number between the min and max numbers
@@ -85,10 +85,10 @@
         return randomNum;
       }
 
-      $('#title').css('fontSize', `${getRandomNum(0, 100)}px`);
+      $('#title').css('fontSize', `${getRandomNum(0, 100)}px`); // TODO:  font-size for css
       $('<li>').text('What a cute puppy!').appendTo('ol');
       $('aside').empty().append('<p> I am so sorry about the list</p>');
-      $('.form-control').on("change", function () {
+      $('.form-control').on("change", function () {  // can also listen for keyUp change
         const red = $('.form-control').eq(0).val();
         const green = $('.form-control').eq(2).val();
         const blue = $('.form-control').eq(1).val();
@@ -99,6 +99,7 @@
 
       /** This function removes the element it is called on. */
       function deleteElement () {
+        console.log(this);
         $(this).remove();
       }
 
