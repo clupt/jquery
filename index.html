@@ -82,15 +82,20 @@
       $('#title').css('fontSize', `${getRandomNum(0, 100)}px`);
       $('<li>').text('What a cute puppy!').appendTo('ol');
       $('aside').empty().append('<p> I am so sorry about the list</p>');
-      $('.form-control').on("change", function (e) {
+      $('.form-control').on("change", function () {
         const red = $('.form-control').eq(0).val();
         const green = $('.form-control').eq(2).val();
         const blue = $('.form-control').eq(1).val();
 
         // updating the background color of body to match rgb values
         $("body").css('background-color', `rgb(${red}, ${green}, ${blue})`);
-
       });
+
+      function deleteImg () {
+        $(this).remove();
+      }
+
+      $('body').on("click", "img", deleteImg);
     </script>
   </body>
 
