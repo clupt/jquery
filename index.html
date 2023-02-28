@@ -75,10 +75,16 @@
       "use strict";
       $('article img').addClass('image-center');
       $('p:last-of-type').remove();
+
+      /**
+       * This function gets a random number between the min and max numbers
+       * passed as arguments. Returns an integer.
+       */
       function getRandomNum(min, max) {
         const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
         return randomNum;
       }
+
       $('#title').css('fontSize', `${getRandomNum(0, 100)}px`);
       $('<li>').text('What a cute puppy!').appendTo('ol');
       $('aside').empty().append('<p> I am so sorry about the list</p>');
@@ -91,11 +97,12 @@
         $("body").css('background-color', `rgb(${red}, ${green}, ${blue})`);
       });
 
-      function deleteImg () {
+      /** This function removes the element it is called on. */
+      function deleteElement () {
         $(this).remove();
       }
 
-      $('body').on("click", "img", deleteImg);
+      $('body').on("click", "img", deleteElement);
     </script>
   </body>
 
