@@ -74,7 +74,7 @@
     <script>
       "use strict";
       $('article img').addClass('image-center');
-      $('p:last-of-type').remove(); // FIXME: select just last p in article
+      $('article p:last-of-type').remove();
 
       /**
        * This function gets a random number between the min and max numbers
@@ -85,7 +85,7 @@
         return randomNum;
       }
 
-      $('#title').css('fontSize', `${getRandomNum(0, 100)}px`); // TODO:  font-size for css
+      $('#title').css('font-size', `${getRandomNum(0, 100)}px`);
       $('<li>').text('What a cute puppy!').appendTo('ol');
       $('aside').empty().append('<p> I am so sorry about the list</p>');
       $('.form-control').on("change", function () {  // can also listen for keyUp change
@@ -97,7 +97,11 @@
         $("body").css('background-color', `rgb(${red}, ${green}, ${blue})`);
       });
 
-      /** This function removes the element it is called on. */
+      /** This function removes the element it is called on.
+       *
+       * uses 'this' as a DOM event handler --'this' is set the element on which
+       * the listener is placed
+      */
       function deleteElement() {
         console.log(this);
         $(this).remove();
